@@ -45,6 +45,7 @@ public class UserController {
 		while (true) {
 			System.out.println("\r\nShow info menu");
 			System.out.println("1. Show user's details");
+			System.out.println("2. Insert User");
 			System.out.println("9. Return to main menu");
 			System.out.print("Enter your choice: ");
 
@@ -56,7 +57,35 @@ public class UserController {
 
 					break;
 				case 2:
-//dataBase.UpdateUser();
+					System.out.print("First Name -> ");
+					String FirstName=x.nextLine();
+					System.out.print("LastName -> ");
+					String LastName=x.nextLine();
+					System.out.print("PhoneNumber -> ");
+					int PhoneNumber=Integer.parseInt(x.nextLine());
+					System.out.print("City -> ");
+					String City=x.nextLine();
+					System.out.print("Address-> ");
+					String Address=x.nextLine();
+					System.out.print("State -> ");
+					String State=x.nextLine();
+					System.out.print("PostalCode -> ");
+					int PostalCode=Integer.parseInt(x.nextLine());
+					System.out.print("Email -> ");
+					String Email=x.nextLine();
+					System.out.print("UserName -> ");
+					String UserName=x.nextLine();
+					System.out.println("Password -> ");
+					String Password=x.nextLine();
+				
+		
+					System.out.print("Car_id ->");
+					int Car_id=Integer.parseInt(x.nextLine());
+					System.out.println();
+					
+					dataBase.User(FirstName, LastName, PhoneNumber, City, Address, State, PostalCode, Email, UserName, Password, Car_id);
+					
+
 					break;
 				case 3:
 //dataBase.InsertUser();

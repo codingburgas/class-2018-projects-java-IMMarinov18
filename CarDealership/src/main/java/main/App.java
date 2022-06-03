@@ -18,12 +18,12 @@ import java.sql.Connection;
 
 // Main class containing main method, i.e. start of a Java application
 public class App {
-	public static void main(String... args) throws SQLException {
+	public static void main(String[] args) throws SQLException {
 		System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, UTF_8));
 // System.out.println(System.getProperty("file.encoding"));
 
-		UserRepository dataBase = new UserRepository();
- //dataBase.ShowCustomers();
+		//UserRepository dataBase = new UserRepository();
+//dataBase.ShowCustomers();
 //dataBase.showCustomerById(1);
 //dataBase.updateCustomer(2, "KASHA", "TODD");
 //dataBase.ShowCustomers();
