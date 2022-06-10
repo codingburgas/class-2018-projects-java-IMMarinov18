@@ -8,6 +8,7 @@ public class User {
     private Long userId;
     private String username;
     private String password;
+    private boolean isAdmin = false;
     private List<Project> projects;
 
     // Constructor
@@ -17,8 +18,16 @@ public class User {
         this.password = password;
         this.projects = new ArrayList<>();
     }
+    
+    public boolean isAdmin() {
+		return isAdmin;
+	}
 
-    // Getters and Setters
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	// Getters and Setters
     public Long getUserId() {
         return userId;
     }
@@ -50,9 +59,7 @@ public class User {
     public void setProjects(List<Project> projects) {
         this.projects = projects;
     }
-
-    // Overriding Equals() and hashcode() in order for the model to be "compatible" with "Hash Collections", e.g.
-    // HashMap, HashSet.
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
