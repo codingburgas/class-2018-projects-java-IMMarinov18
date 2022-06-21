@@ -18,6 +18,7 @@ import java.sql.Connection;
 
 //SCHOOL: SD2312
 public class UserRepository {
+	private static final int Car_id = 0;
 	private String url = "jdbc:sqlserver://SD2312\\SQLEXPRESS;databaseName=Car Dealership;integratedSecurity=true";
 	private Connection conn;
 	public User user;
@@ -143,9 +144,11 @@ public class UserRepository {
 		System.out.println(String.format("Rows affected: %d", rs));
 	}
 
+	
+	
 	public void deleteUser(Integer id) throws SQLException {
 		String idStr = id.toString();
-		String query1 = "DELETE FROM [User] " + "WHERE UserId = ?";
+		String query1 = "DELETE FROM [User] " + "WHERE id = ?";
 
 		PreparedStatement stmt = conn.prepareStatement(query1);
 
@@ -153,10 +156,23 @@ public class UserRepository {
 
 		int rs = stmt.executeUpdate();
 
-		System.out.println(String.format("Rows affected: %d", rs));
+		System.out.println(String.format("Successfully deleted this user: %d", rs));
 
 	}
+	
+	public void deleteCar(Integer id) throws SQLException {
+		String idStr = id.toString();
+		String query1 = "DELETE FROM [Car] " + "WHERE CarId = ?";
 
+		PreparedStatement stmt = conn.prepareStatement(query1);
+
+		stmt.setInt(1, id);
+
+		int rs = stmt.executeUpdate();
+
+		System.out.println(String.format("Successfully deleted this car: %d", rs));
+
+	}
 	public User login(String username, String pass) throws SQLException {
 
 		String query1 = "SELECT * FROM [User] " + "WHERE Username = '" + username + "';";

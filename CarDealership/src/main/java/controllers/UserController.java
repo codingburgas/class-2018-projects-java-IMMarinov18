@@ -148,6 +148,8 @@ public class UserController {
 						break;
 						
 					
+
+
 					case 9:
 						return;
 					default:
@@ -165,6 +167,8 @@ public class UserController {
 				System.out.println("2. Insert User");
 				System.out.println("3. Show Cars");
 				System.out.println("4. Add Car");
+				System.out.println("5. Delete User");
+				System.out.println("6. Delete Car");
 				System.out.println("9. Return to main menu");
 				System.out.print("Enter your choice: ");
 				
@@ -222,7 +226,18 @@ public class UserController {
 
 							dataBase.insertCar(Category, Model, Year, Serial_Number, Price);
 							break;
+						case 5:
+							
+							dataBase.ShowCustomers();
+							Integer str = Integer.parseInt(x.next());
+							dataBase.deleteUser(str);
+							break;
+						case 6:
+							dataBase.ShowCars();
+							Integer str1 = Integer.parseInt(x.next());
+							dataBase.deleteCar(str1);
 						case 9:
+							
 							return;
 						default:
 							System.out.println("Wrong input! Please enter valid value\r\n");
