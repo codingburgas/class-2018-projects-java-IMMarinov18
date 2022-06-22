@@ -130,20 +130,38 @@ public class UserRepository {
 	}
 
 // Updates the customers first name by id
-	public void updateUser(int id, String Fname, String Lname) throws SQLException {
-		String query1 = "UPDATE [User] " + "SET FirstName = ?, LastName = ? " + "WHERE UserId = ?";
+	
+	public void updateCar(int id, double price, Integer year) throws SQLException {
+		String query1 = "UPDATE Car " + "SET Price = ?, Year = ? " + " WHERE CarId = ? ";
+		PreparedStatement stmt = conn.prepareStatement(query1);
+		stmt.setDouble(1, price);
+		stmt.setInt(2, year);
+		stmt.setInt(3, id);
+
+
+
+		int rs = stmt.executeUpdate();
+
+
+
+		System.out.println(String.format("Successfully update this car: %d", rs));
+		}
+	
+	
+	
+	public void updateUser(int id, String FirstName, String LastName) throws SQLException {
+		String query1 = "UPDATE [User] " + "SET FirstName = ?, LastName = ? " + "WHERE id = ?";
 
 		PreparedStatement stmt = conn.prepareStatement(query1);
 
-		stmt.setString(1, Fname);
-		stmt.setString(2, Lname);
+		stmt.setString(1, FirstName);
+		stmt.setString(2, LastName);
 		stmt.setInt(3, id);
 
 		int rs = stmt.executeUpdate();
 
-		System.out.println(String.format("Rows affected: %d", rs));
+		System.out.println(String.format("Successfully update this user: %d", rs));
 	}
-
 	
 	
 	public void deleteUser(Integer id) throws SQLException {

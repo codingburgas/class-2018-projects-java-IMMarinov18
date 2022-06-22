@@ -169,6 +169,8 @@ public class UserController {
 				System.out.println("4. Add Car");
 				System.out.println("5. Delete User");
 				System.out.println("6. Delete Car");
+				System.out.println("7. Update Car");
+				System.out.println("8. Update User");
 				System.out.println("9. Return to main menu");
 				System.out.print("Enter your choice: ");
 				
@@ -236,6 +238,30 @@ public class UserController {
 							dataBase.ShowCars();
 							Integer str1 = Integer.parseInt(x.next());
 							dataBase.deleteCar(str1);
+						case 7:
+							System.out.print("id -> ");
+							int id = x.nextInt();
+							System.out.print("Price -> ");
+							double price = x.nextDouble();
+							System.out.print("Year -> ");
+							int year = x.nextInt();
+							
+							dataBase.updateCar(id,price,year);
+							break;
+						case 8:
+							System.out.print("id -> ");
+							int id1 = x.nextInt();
+							System.out.print("FirstName -> ");
+							String FirstName1 = x.nextLine();
+							if(FirstName1.isBlank()) {
+								
+								FirstName1 = x.nextLine();
+							}
+							System.out.print("LastName -> ");
+							String LastName1 = x.nextLine();
+							
+							dataBase.updateUser(id1,FirstName1,LastName1);
+							break;
 						case 9:
 							
 							return;
